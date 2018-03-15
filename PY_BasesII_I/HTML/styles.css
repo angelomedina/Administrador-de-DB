@@ -1,3 +1,9 @@
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
 .basic-textarea textarea {
     height: auto;
 }
@@ -174,6 +180,14 @@ a.github {
 }
 a.github:hover {
     background-color: rgb(51, 51, 51) !important;
+}
+
+input:invalid {
+    border: 1px solid deeppink;
+}
+
+input:valid {
+    border: 1px solid deepskyblue;
 }
 
 
