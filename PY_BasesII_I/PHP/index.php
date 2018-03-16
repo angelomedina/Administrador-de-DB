@@ -10,7 +10,7 @@ function conectar_PostgreSQL($usuario,$contraseña,$ip,$puerto)
 {
     $user = $usuario;
     $password = $contraseña;
-    $dbname = "ProyectoII";
+    $dbname = "postgres";//"ProyectoII";
     $port = $puerto;
     $host = $ip;
 
@@ -18,24 +18,7 @@ function conectar_PostgreSQL($usuario,$contraseña,$ip,$puerto)
     $conexion = pg_connect($cadenaConexion) or die( "Error al conectar: ".pg_last_error() );
     return $conexion;
 }
-/*
-//conectar_PostgreSQL($phots,$pport,$puser,$ppassword)
-function conectar_PostgreSQL()
-{
 
-    $user = $puser;
-    $password = $ppassword;
-    $dbname = "ProyectoII";
-    $port = 5232;//$pport;
-    $host = $phots;
-
-
-    $conexion = pg_connect("host=localhost port=5432 dbname=ProyectoII user=postgres password=deathnote") or die( "Error al conectar: ".pg_last_error() );
-
-    //$cadenaConexion = "host=$host port=$port dbname=$dbname user=$user password=$password";
-    $conexion = pg_connect($conexion) or die( "Error al conectar con Postgres: ".pg_last_error() );
-    return $conexion;
-}*/
 
 ?>
 

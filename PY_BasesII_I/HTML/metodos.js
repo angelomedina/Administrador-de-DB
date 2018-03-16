@@ -33,17 +33,14 @@ function loginSQL() {
     }
 }
 
-function mensaje(mensaje) {
-    console.log(mensaje.toString());
-    if(mensaje != "")
+function mensaje(mensaje,estado,respuesta,estadoRespuesta) {
+
+    if(mensaje == "OK" && estado == 200 && estadoRespuesta == 4)
     {
-        console.log(mensaje);
-        //alert("Exitoso");
+        alert("Conexion exitosa con Postgres");
+        window.location.href = href="../HTML/postgres.html";
     }
-    else{
-        console.log(mensaje);
-        //alert("No exitoso");
-    }
+    else{alert(respuesta);}
 }
 
 function conectarPOSTGRES(usuario){
@@ -55,12 +52,16 @@ function conectarPOSTGRES(usuario){
 
         if (this.readyState == 4 && this.status == 200) {
 
-            document.getElementById('btn_postgres').value="postgres"
-            alert(this.responseText);
+            document.getElementById('btn_postgres').value="postgres";
+
+            if(this.statusText== "OK" && this.status == 200) {
+
+                mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
+            }
+            else{console.log(this.statusText, this.status)}
 
         }
     };
-    //xhttp.open("GET", "../PHP/index.php?func=conectar_PostgreSQL()"+"&host="+usuario.IP+"&port="+usuario.port+"&user="+usuario.usuario+"&password="+usuario.contraseña, true);
     xhttp.open("GET", "../PHP/index.php?func=conectar_PostgreSQL()&usuario="+usuario.usuario +"&contraseña="+usuario.contraseña +"&ip="+usuario.IP +"&puerto="+usuario.puerto.toString(), true);
     xhttp.send();
 }
