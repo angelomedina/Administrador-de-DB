@@ -37,7 +37,7 @@
                 <input  class="form-control" id="usuario" required  ><br>
 
                 <h6 class="cardT">Contraseña</h6>
-                <input  type="password" class="form-control" id="constrasena" required  ><br>
+                <input  type="text" class="form-control" id="constrasena" required  ><br>
 
                 <h6 class="cardT">Dirección IP</h6>
                 <input type="text" class="form-control" id="direccionip" required  ><br>
@@ -46,8 +46,11 @@
                 <input type="number" class="form-control" id="puertoServidor" required ><br>
             </form>
 
-            <input  type="submit" href="file:///D:/TEC/Bases%20II/ProyectoBasesII/HTML/postgres.html" value="postgres" class="btn btn-primary" onclick="loginPostgres()" ></input>
-            <input  type="submit" href="file:///D:/TEC/Bases%20II/ProyectoBasesII/HTML/sql.html" value="sql" class="btn btn-primary" onclick="loginSQL()"></input>
+            <input type="submit" href="../HTML/postgres.html"  class="btn btn-primary" id="btn_postgres" value="postgres" onclick="loginPostgres()"></input>
+
+            <!-- <button type="submit" href="../PHP/prueba.html">prueba</button> -->
+
+            <input type="submit" href="" value="sql" class="btn btn-primary" onclick="loginSQL()"></input>
         </div>
     </div>
 </div>

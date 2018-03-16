@@ -11,6 +11,15 @@ function limpiarFormI() {
 }
 
 function loginPostgres() {
+
+    var usuario=validarFormulario();
+    if(usuario != null) {
+        conectarPOSTGRES(usuario);
+    }
+    else { alert("Error verifique que el formulario este lleno");}
+}
+
+function loginSQL() {
     var objeto=validarFormulario();
     console.log(objeto)
 
@@ -24,31 +33,35 @@ function loginPostgres() {
     }
 }
 
-function loginSQL() {
-    var objeto=validarFormulario();
-    console.log(objeto)
-
-    if(objeto != null) {
-        console.log(objeto);
-    }
-    else
+function mensaje(mensaje) {
+    console.log(mensaje.toString());
+    if(mensaje != "")
     {
-        alert("Error verifique que el formulario este lleno")
+        console.log(mensaje);
+        //alert("Exitoso");
+    }
+    else{
+        console.log(mensaje);
+        //alert("No exitoso");
     }
 }
 
+function conectarPOSTGRES(usuario){
 
-function conectarPOSTGRES() {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function()
-    {
-        if (this.readyState == 4 && this.status == 200)
-        {
-            //obj=eval (this.responseText);
-            //console.log(obj);
+    xhttp.onreadystatechange = function () {
+
+        document.getElementById('btn_postgres').value="Esperando..."
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById('btn_postgres').value="postgres"
+            alert(this.responseText);
+
         }
     };
-    xhttp.open("GET", "../HTML/index.php?func=conectar_PostgreSQL()", true);
+    //xhttp.open("GET", "../PHP/index.php?func=conectar_PostgreSQL()"+"&host="+usuario.IP+"&port="+usuario.port+"&user="+usuario.usuario+"&password="+usuario.contraseña, true);
+    xhttp.open("GET", "../PHP/index.php?func=conectar_PostgreSQL()&usuario="+usuario.usuario +"&contraseña="+usuario.contraseña +"&ip="+usuario.IP +"&puerto="+usuario.puerto.toString(), true);
     xhttp.send();
 }
 
