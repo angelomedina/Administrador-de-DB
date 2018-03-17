@@ -66,6 +66,31 @@ function conectarPOSTGRES(usuario){
     xhttp.send();
 }
 
+function conectarSQLServer(){
+
+    console.log("entro");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        //document.getElementById('btn_postgres').value="Esperando..."
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            //document.getElementById('btn_postgres').value="postgres";
+
+            if(this.statusText== "OK" && this.status == 200) {
+
+                //mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
+                console.log(this.responseText);
+            }
+            else{console.log(this.statusText, this.status)}
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=conectar_SQLServer()", true);
+    xhttp.send();
+}
+
 function validarFormulario() {
     var JSON = "";
     var estado = true;
