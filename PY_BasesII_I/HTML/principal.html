@@ -32,27 +32,23 @@
     <div class="card-block">
         <div class="contenido">
 
-            <form id="contenidoI" onsubmit="return validarFormulario()">
+            <form  id="contenidoI" onsubmit="return validarFormulario()">
                 <h6 class="cardT">Usuario</h6>
-                <input  class="form-control" id="usuario" required  ><br>
+                <input  class="form-control form-control-lg" id="usuario" required  ><br>
 
                 <h6 class="cardT">Contraseña</h6>
-                <input  type="text" class="form-control" id="constrasena" required  ><br>
+                <input  type="text" class="form-control form-control-lg" id="constrasena" required  ><br>
 
                 <h6 class="cardT">Dirección IP</h6>
-                <input type="text" class="form-control" id="direccionip" required  ><br>
+                <input type="text" class="form-control form-control-lg" id="direccionip" required  ><br>
 
                 <h6 class="cardT">Puerto del Servidor</h6>
-                <input type="number" class="form-control" id="puertoServidor" required ><br>
+                <input type="number" class="form-control form-control-lg" id="puertoServidor" required ><br>
             </form>
 
             <a  target="_self" > <input class="btn btn-primary" type="submit" id="btn_postgres" value="postgres" onclick="loginPostgres()"/> </a>
-
-            <input type="submit" href="" value="sql" class="btn btn-primary" onclick="loginSQL()"></input>
+            <a  target="_self" > <input class="btn btn-primary" type="submit" id="btn_sqlserver" value="sql server" onclick="loginSQL()"/> </a>
         </div>
-
-        <input type="submit" onclick="conectarSQLServer()"></input>
-
     </div>
 </div>
 </body>
