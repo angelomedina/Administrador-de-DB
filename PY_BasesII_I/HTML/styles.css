@@ -59,6 +59,21 @@ body
     font-size:15px;
     color: lightslategrey;
 }
+
+.titulo-label-4{
+    font-size:25px;
+    color: lightseagreen;
+
+}
+
+.titulo-label-5{
+    font-size:15px;
+    color: gray;
+}
+.titulo-label-6{
+    font-size:15px;
+    color: #372959;
+}
 .na{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: auto;
@@ -189,5 +204,4 @@ input:invalid {
 input:valid {
     border: 1px solid deepskyblue;
 }
-
 

@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <title>Gestor de Almacenamiento de Bases de Datos  </title>
     <!--library Propia -->
     <script src="metodos.js"></script>
     <link  rel="stylesheet" href="styles.css">
-
-    <!--Library Menu-->
-    <!--<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">-->
+    <!--Library bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
-
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- Material Design for Bootstrap -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
- </head>
+</head>
 <body>
 
 <div class="card text-white bg-primary mb-3" style="max-width: 500rem;">
     <br><br><label class="titulo-label">Gestor de Almacenamiento de Bases de Datos</label><br><br>
 </div>
 
-    <div class="card" style="width: 30rem;">
+<div class="card" style="width: 30rem;">
     <div class="card-header">
         <label class="titulo-label-2">Login</label><br><br><br>
     </div>
     <div class="card-block">
         <div class="contenido">
-
             <form  id="contenidoI" onsubmit="return validarFormulario()">
                 <h6 class="cardT">Usuario</h6>
                 <input  class="form-control form-control-lg" id="usuario" required  ><br>
@@ -45,7 +36,6 @@
                 <h6 class="cardT">Puerto del Servidor</h6>
                 <input type="number" class="form-control form-control-lg" id="puertoServidor" required ><br>
             </form>
-
             <a  target="_self" > <input class="btn btn-primary" type="submit" id="btn_postgres" value="postgres" onclick="loginPostgres()"/> </a>
             <a  target="_self" > <input class="btn btn-primary" type="submit" id="btn_sqlserver" value="sql server" onclick="loginSQL()"/> </a>
         </div>
