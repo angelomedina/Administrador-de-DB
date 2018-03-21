@@ -1,6 +1,3 @@
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
 //variable con los datos de la conexion actual
 var usuarioActual;
 
@@ -41,11 +38,13 @@ function loginSQL() {
 //imprime el resultado de la piticion de la conexion
 function mensaje(mensaje,estado,respuesta,estadoRespuesta) {
 
-    if(mensaje == "OK" && estado == 200 && estadoRespuesta == 4){
+    console.log(estadoRespuesta,respuesta);
+
+    if(mensaje == "OK" && estado == 200 && estadoRespuesta == 10){
         alert("Conexion exitosa con Postgres");
         window.location.href = href="../HTML/postgres.html";
     }
-    else if( estadoRespuesta == 36) {
+    else if( estadoRespuesta == 42) {
         alert("Conexion exitosa con SQL Server");
         window.location.href = href = "../HTML/sql.html";
     }
@@ -157,21 +156,52 @@ function validarFormulario() {
 }
 
 
-function drawChart() {
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//parte de consultas de SQL
 
-    var data = google.visualization.arrayToDataTable([
-        ['Info', 'Valor'],
-        ['Tamaño',     11],
-        ['Crecimiento',      2],
-        ['Tamaño maximo',  2],
-        ['Porcentage de uso', 2]
-    ]);
 
-    var options = {
-        title: 'Porcentaje de discos'
+function getBasesDatos()
+{
+    var pais="";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function()
+    {
+        if (this.readyState == 4 && this.status == 200)
+        {
+
+            obj= this.responseText ;
+
+            for (var i in obj)
+            {
+                var pieza=obj[i];
+                if(pieza != "," ) {
+                    pais=pais+pieza;
+                }
+                else {
+                    console.log(pais)
+                    addOptions("nacionalidad-empleado", pais);
+                    pais = "";
+
+                }
+            }
+
+        }
     };
+    xhttp.open("GET", "../PHP/index.php?func=get_DB()", true);
 
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+    xhttp.send();
+}
 
-    chart.draw(data, options);
+function addOptions(domElement, array) {
+
+ if(array !== "undefinedmaster") {
+     if (array != "") {
+         if (array != undefined) {
+             var select = document.getElementsByName(domElement)[0];
+             var option = document.createElement("option");
+             option.text = array;
+             select.add(option);
+         }
+     }
+ }
 }

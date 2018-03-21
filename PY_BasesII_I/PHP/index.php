@@ -1,5 +1,10 @@
 <?php
 //verifica a que funcion desea acceder
+if ($_GET['func']=='get_DB()')
+{
+    get_DB();
+}
+
 if ($_GET['func']=='conectar_SQLServer()')
 {
     conectar_SQLServer($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto']);
@@ -33,6 +38,37 @@ function conectar_SQLServer($usuario,$contraseña,$ip,$puerto)
         die( print_r( sqlsrv_errors(), true));
     }
 }
+
+
+//funcion para obtener las bases de datos del sistema
+function get_DB(){
+    $ip="localhost";
+    $puerto="1433";
+    $usuario="sa";
+    $contraseña="deathnote";
+
+    $serverName = "$ip\sqlexpress,$puerto"; //(por defecto es 1433)
+    $connectionInfo = array( "Database"=>"master", "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    $sql = "SELECT name FROM sys.databases;";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+
+    while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+        echo $row['name'].",";
+    }
+
+    sqlsrv_free_stmt( $stmt);
+}
 ?>
+
+
+
 
 
