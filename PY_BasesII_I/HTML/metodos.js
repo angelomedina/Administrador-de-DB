@@ -1,5 +1,6 @@
 //variable con los datos de la conexion actual
 var usuarioActual;
+var conexionActual;
 
 //objeto perosna con los datos del formulario
 function persona(usr,contra,ip,puert) {
@@ -9,9 +10,18 @@ function persona(usr,contra,ip,puert) {
     this.puerto=puert;
 }
 
+//objeto perosna con los datos del formulario
+function conexion(usr,contra,ip,puert,db) {
+    this.usuario=usr;
+    this.contraseña=contra;
+    this.IP =ip;
+    this.puerto=puert;
+    this.DB=db;
+}
+
 //limpia el formulario
 function limpiarFormI() {
-    document.getElementById("contenidoI").reset();
+    //document.getElementById("contenidoI").reset();
 }
 
 //cuando recogio exitosamente los parametros de usuario lo envia a conectarse con Postgres
@@ -38,15 +48,15 @@ function loginSQL() {
 //imprime el resultado de la piticion de la conexion
 function mensaje(mensaje,estado,respuesta,estadoRespuesta) {
 
-    console.log(estadoRespuesta,respuesta);
 
     if(mensaje == "OK" && estado == 200 && estadoRespuesta == 10){
         alert("Conexion exitosa con Postgres");
-        window.location.href = href="../HTML/postgres.html";
+        //window.location.href = href="../HTML/postgres.html";
     }
     else if( estadoRespuesta == 42) {
         alert("Conexion exitosa con SQL Server");
-        window.location.href = href = "../HTML/sql.html";
+        getBasesDatos_SQL();
+        //window.location.href = href = "../HTML/sql.html";
     }
     else {
         alert(respuesta);
@@ -70,6 +80,7 @@ function conectarPOSTGRES(usuario){
 
             if(this.statusText== "OK" && this.status == 200) {
 
+                usuarioActual=usuario;
                 mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
             }
             else{console.log(this.statusText, this.status)}
@@ -94,7 +105,7 @@ function conectarSQLServer(usuario){
 
             if(this.statusText== "OK" && this.status == 200) {
 
-
+                usuarioActual=usuario;
                 mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
             }
             else{console.log(this.statusText, this.status)}
@@ -159,8 +170,45 @@ function validarFormulario() {
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //parte de consultas de SQL
 
+//toma lo la base de datos que hay en el select y establece la nueva conexion
+function setBD_SQL(){
+    //obtiene los datos del select
+    var bd = document.getElementById('select-bd').value;
+    //crea el objeto conexion
+    var objConexion = new conexion( usuarioActual.usuario , usuarioActual.contraseña, usuarioActual.IP,usuarioActual.puerto,bd);
+    //instancia de manera global
+    conexionActual = objConexion;
+    //verificacion de cambio de BD
+     cambioBD_SQL();
+}
 
-function getBasesDatos()
+//funcion dependiente de la anterior setBD() hace la peticion
+function cambioBD_SQL() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        document.getElementById('btn-db').value="Esperando..."
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById('btn-db').value="Selecionar";
+
+            if(this.statusText== "OK" && this.status == 200) {
+                mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
+            }
+            else{console.log(this.statusText, this.status)}
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=select_SQLServer()&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB, true);
+    xhttp.send();
+}
+
+//optiene las bases de datos
+
+/////////////////////////////////////////////////meterle parametros
+function getBasesDatos_SQL()
 {
     var pais="";
     var xhttp = new XMLHttpRequest();
@@ -178,8 +226,8 @@ function getBasesDatos()
                     pais=pais+pieza;
                 }
                 else {
-                    console.log(pais)
-                    addOptions("nacionalidad-empleado", pais);
+                    //console.log(pais)
+                    addOptions("select-bd", pais);
                     pais = "";
 
                 }
@@ -192,15 +240,57 @@ function getBasesDatos()
     xhttp.send();
 }
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//parte de consultas de postgres
+
+//toma lo la base de datos que hay en el select y establece la nueva conexion
+
+
+
+function getBasesDatos_Postgres()
+{
+    var pais="";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function()
+    {
+        if (this.readyState == 4 && this.status == 200)
+        {
+
+            obj= this.responseText ;
+
+            for (var i in obj)
+            {
+                var pieza=obj[i];
+                if(pieza != "," ) {
+                    pais=pais+pieza;
+                }
+                else {
+                    //console.log(pais)
+                    addOptions("select-bd", pais);
+                    pais = "";
+
+                }
+            }
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=get_DB_postgres()", true);
+
+    xhttp.send();
+}
+
+
 function addOptions(domElement, array) {
 
  if(array !== "undefinedmaster") {
      if (array != "") {
          if (array != undefined) {
-             var select = document.getElementsByName(domElement)[0];
-             var option = document.createElement("option");
-             option.text = array;
-             select.add(option);
+             if(array != '"') {
+                 var select = document.getElementsByName(domElement)[0];
+                 var option = document.createElement("option");
+                 option.text = array;
+                 select.add(option);
+             }
          }
      }
  }

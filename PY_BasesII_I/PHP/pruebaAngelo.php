@@ -1,30 +1,13 @@
 <?php
-
-$ip="localhost";
-$puerto="1433";
-$usuario="sa";
-$contraseña="deathnote";
-
-
-
-
-$serverName = "$ip\sqlexpress,$puerto"; //(por defecto es 1433)
-$connectionInfo = array( "Database"=>"master", "UID"=>$usuario, "PWD"=>$contraseña);
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
-if( $conn === false ) {
-    die( print_r( sqlsrv_errors(), true));
-}
-
-$sql = "SELECT name FROM sys.databases;";
-$stmt = sqlsrv_query( $conn, $sql );
-if( $stmt === false) {
-    die( print_r( sqlsrv_errors(), true) );
-}
+$conexion = pg_connect("host=localhost port=5432 dbname=postgres user=postgres password=deathnote") or die( "Error al conectar: ".pg_last_error() );
+$sql = "select conectarBD('ExamenII');";
+$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+$rows = pg_numrows($result);
 
 $string="";
-while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-    echo $row['name']."<br />";
+for($i=1;$i<=$rows; $i++){
+    $line = pg_fetch_array($result, null, PGSQL_ASSOC);
+    $string=$string.","."$line[conectarbdrecord] ";
 }
-
-sqlsrv_free_stmt( $stmt);
+echo json_encode($string);
 ?>
