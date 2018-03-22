@@ -47,23 +47,17 @@ function loginSQL() {
 
 //imprime el resultado de la piticion de la conexion
 function mensaje(mensaje,estado,respuesta,estadoRespuesta) {
-
-
     if(mensaje == "OK" && estado == 200 && estadoRespuesta == 10){
         alert("Conexion exitosa con Postgres");
-        //window.location.href = href="../HTML/postgres.html";
+        getBasesDatos_Postgres();
     }
     else if( estadoRespuesta == 42) {
         alert("Conexion exitosa con SQL Server");
         getBasesDatos_SQL();
-        //window.location.href = href = "../HTML/sql.html";
     }
     else {
         alert(respuesta);
     }
-
-
-
 }
 
 //hace la solicitid de la conexion con postgres
@@ -235,8 +229,7 @@ function getBasesDatos_SQL()
 
         }
     };
-    xhttp.open("GET", "../PHP/index.php?func=get_DB()", true);
-
+    xhttp.open("GET", "../PHP/index.php?func=get_DB_SQL()&usuario="+usuarioActual.usuario +"&contraseña="+usuarioActual.contraseña +"&ip="+usuarioActual.IP +"&puerto="+usuarioActual.puerto.toString()+"&bd="+"master", true);
     xhttp.send();
 }
 
@@ -245,7 +238,41 @@ function getBasesDatos_SQL()
 
 //toma lo la base de datos que hay en el select y establece la nueva conexion
 
+//toma lo la base de datos que hay en el select y establece la nueva conexion
+function setBD_Postgres(){
+    //obtiene los datos del select
 
+    var bd = document.getElementById('select-bd-postgres').value;
+    //crea el objeto conexion
+    var objConexion = new conexion( usuarioActual.usuario , usuarioActual.contraseña, usuarioActual.IP,usuarioActual.puerto,bd);
+    //instancia de manera global
+    conexionActual = objConexion;
+    //verificacion de cambio de BD
+    cambioBD_Postgres();
+
+}
+
+//funcion dependiente de la anterior setBD() hace la peticion
+function cambioBD_Postgres() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        document.getElementById('btn-db').value="Esperando..."
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById('btn-db').value="Selecionar";
+
+            if(this.statusText== "OK" && this.status == 200) {
+                mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
+            }
+            else{console.log(this.statusText, this.status)}
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=select_Postgres()&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB, true);
+    xhttp.send();
+}
 
 function getBasesDatos_Postgres()
 {
@@ -265,17 +292,15 @@ function getBasesDatos_Postgres()
                     pais=pais+pieza;
                 }
                 else {
-                    //console.log(pais)
-                    addOptions("select-bd", pais);
+                    //console.log(pais);
+                    addOptions("select-bd-postgres", pais);
                     pais = "";
 
                 }
             }
-
         }
     };
-    xhttp.open("GET", "../PHP/index.php?func=get_DB_postgres()", true);
-
+    xhttp.open("GET", "../PHP/index.php?func=get_DB_postgres()&usuario="+usuarioActual.usuario +"&contraseña="+usuarioActual.contraseña +"&ip="+usuarioActual.IP +"&puerto="+usuarioActual.puerto.toString()+"&bd="+"postgres", true);
     xhttp.send();
 }
 
