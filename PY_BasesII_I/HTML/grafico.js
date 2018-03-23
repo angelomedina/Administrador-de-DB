@@ -1,6 +1,7 @@
 /**
  * Created by Usuario on 21/3/2018.
  */
+/*
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 
@@ -22,3 +23,4 @@ function drawChart() {
 
     chart.draw(data, options);
 }
+*/

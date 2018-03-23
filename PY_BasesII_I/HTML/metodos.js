@@ -1,4 +1,7 @@
 //variable con los datos de la conexion actual
+google.charts.load('current', {'packages':['table']});
+google.charts.setOnLoadCallback(chart_Postgres);
+
 var usuarioActual;
 var conexionActual;
 
@@ -247,6 +250,7 @@ function setBD_Postgres(){
     var objConexion = new conexion( usuarioActual.usuario , usuarioActual.contraseña, usuarioActual.IP,usuarioActual.puerto,bd);
     //instancia de manera global
     conexionActual = objConexion;
+    limpiarSelect();
     //verificacion de cambio de BD
     cambioBD_Postgres();
 
@@ -264,7 +268,8 @@ function cambioBD_Postgres() {
             document.getElementById('btn-db').value="Selecionar";
 
             if(this.statusText== "OK" && this.status == 200) {
-                mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
+
+                add_procedure_Postgres();
             }
             else{console.log(this.statusText, this.status)}
 
@@ -304,7 +309,6 @@ function getBasesDatos_Postgres()
     xhttp.send();
 }
 
-
 function addOptions(domElement, array) {
 
  if(array !== "undefinedmaster") {
@@ -320,3 +324,96 @@ function addOptions(domElement, array) {
      }
  }
 }
+
+function mensajeGrafico(mensaje,estado,respuesta,estadoRespuesta) {
+    if(mensaje == "OK" && estado == 200 && estadoRespuesta == 10){
+        alert("Conexion exitosa con Postgres");
+        getBasesDatos_Postgres();
+        add_grafico_Postgres();
+
+
+    }
+    else if( estadoRespuesta == 42) {
+        alert("Conexion exitosa con SQL Server");
+        getBasesDatos_SQL();
+    }
+    else {
+        alert(respuesta);
+    }
+}
+
+function add_procedure_Postgres() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        document.getElementById('btn-db').value="Esperando..."
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById('btn-db').value="Selecionar";
+
+            if(this.statusText== "OK" && this.status == 200) {
+
+                mensajeGrafico(this.statusText, this.status,this.responseText,this.responseText.length);
+            }
+            else{console.log(this.statusText, this.status)}
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=add_procedure_DB_postgres()&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB, true);
+    xhttp.send();
+}
+
+function add_grafico_Postgres() {
+    var pais="";
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            if(this.statusText== "OK" && this.status == 200) {
+
+                obj= this.responseText ;
+                for (var i in obj)
+                {
+                    var pieza=obj[i];
+                    if(pieza != ']'){
+                        if( pieza != '['){
+                            if(pieza != '('){
+                                if(pieza != ')'){
+                                    if(pieza != '"'){
+                                    pais=pais+pieza;
+                                }}}}}
+                }
+                console.log(pais);
+                chart_Postgres(conexionActual.DB,parseInt(pais),true);
+            }
+            else{console.log(this.statusText, this.status)}
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=add_grafico_DB_postgres()&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB, true);
+    xhttp.send();
+}
+
+function chart_Postgres(BD,tamaño,estado) {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Base de datos');
+    data.addColumn('number', 'Tamaño');
+    data.addColumn('boolean', 'Conexión actual');
+    data.addRows([
+        [BD,  tamaño,estado]
+    ]);
+    var table = new google.visualization.Table(document.getElementById('chart_postgres'));
+    table.draw(data, {showRowNumber: true, width: '100%', height: '20%'});
+
+}
+
+function limpiarSelect() {
+    var select = document.getElementById('select-bd-postgres');
+    while (select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
+}
+

@@ -1,5 +1,15 @@
 <?php
 //verifica a que funcion desea acceder
+if ($_GET['func']=='add_grafico_DB_postgres()')
+{
+    add_grafico_DB_postgres($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
+}
+
+if ($_GET['func']=='add_procedure_DB_postgres()')
+{
+    add_procedure_DB_postgres($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
+}
+
 if ($_GET['func']=='get_DB_SQL()')
 {
     get_DB_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
@@ -123,10 +133,35 @@ function get_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
     echo json_encode($string);
 
 }
-/*
-SELECT datname FROM pg_database
-WHERE datistemplate = false;
-*/
+
+function add_procedure_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
+    $cadenaConexion = "host=$ip port=$puerto dbname=$bd user=$usuario password=$contraseña";
+    $conexion = pg_connect($cadenaConexion) or die( "Error al conectar: ".pg_last_error() );
+
+    $sql = "CREATE OR REPLACE function conectarBD(dbname varchar) returns record as $$
+            declare
+                v_record record;
+            begin
+                SELECT * INTO v_record from (SELECT 	
+                --pg_database_size: obtiene el tamaño maximo de la BD dada por parametro					
+                pg_database_size( dbname ))
+                as we;
+                RETURN v_record;
+            end;
+            $$ language plpgsql;";
+    $result = pg_query($sql) or die('Error al agregar el procedimiento almacenado: ' . pg_last_error());
+
+
+}
+
+function add_grafico_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
+    $cadenaConexion = "host=$ip port=$puerto dbname=$bd user=$usuario password=$contraseña";
+    $conexion = pg_connect($cadenaConexion) or die( "Error al conectar: ".pg_last_error() );
+    $sql = "select conectarBD('$bd');";
+    $result = pg_query($sql) or die('Error al agregar el procedimiento almacenado: ' . pg_last_error());
+    $row=pg_fetch_row($result);
+    echo json_encode($row);
+}
 ?>
 
 

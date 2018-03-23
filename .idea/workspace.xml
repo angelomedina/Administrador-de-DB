@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0df3f2f-e518-4d29-8a39-3533f135fca0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PY_BasesII_I/HTML/grafico.js" afterPath="$PROJECT_DIR$/PY_BasesII_I/HTML/grafico.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PY_BasesII_I/HTML/metodos.js" afterPath="$PROJECT_DIR$/PY_BasesII_I/HTML/metodos.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PY_BasesII_I/HTML/postgres.html" afterPath="$PROJECT_DIR$/PY_BasesII_I/HTML/postgres.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PY_BasesII_I/PHP/index.php" afterPath="$PROJECT_DIR$/PY_BasesII_I/PHP/index.php" />
@@ -28,103 +30,94 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PY_BasesII_I/PHP/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="102" column="62" lean-forward="false" selection-start-line="102" selection-start-column="62" selection-end-line="102" selection-end-column="62" />
+            <state relative-caret-position="339">
+              <caret line="156" column="71" lean-forward="false" selection-start-line="156" selection-start-column="71" selection-end-line="156" selection-end-column="71" />
               <folding>
-                <element signature="e#45#177#0#PHP" expanded="false" />
-                <element signature="e#179#321#0#PHP" expanded="false" />
-                <element signature="e#323#465#0#PHP" expanded="false" />
-                <element signature="e#467#613#0#PHP" expanded="false" />
-                <element signature="e#615#751#0#PHP" expanded="false" />
-                <element signature="e#753#891#0#PHP" expanded="false" />
+                <element signature="e#45#203#0#PHP" expanded="false" />
+                <element signature="e#205#367#0#PHP" expanded="false" />
+                <element signature="e#369#501#0#PHP" expanded="false" />
+                <element signature="e#503#645#0#PHP" expanded="false" />
+                <element signature="e#647#789#0#PHP" expanded="false" />
+                <element signature="e#791#937#0#PHP" expanded="false" />
+                <element signature="e#939#1075#0#PHP" expanded="false" />
+                <element signature="e#1077#1215#0#PHP" expanded="false" />
                 <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
                 <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
                 <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
                 <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
                 <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-                <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-                <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
+                <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+                <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+                <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+                <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+                <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+                <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="postgres.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="postgres.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/postgres.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#2;n#form#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#3;n#form#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#2;n#form#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#3;n#form#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#2;n#form#0;n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#3;n#form#0;n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sql.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/sql.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="metodos.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="metodos.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/metodos.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+            <state relative-caret-position="202">
+              <caret line="252" column="20" lean-forward="false" selection-start-line="252" selection-start-column="20" selection-end-line="252" selection-end-column="20" />
               <folding>
                 <element signature="n#!!block;n#persona#0" expanded="false" />
                 <element signature="n#!!block;n#conexion#0" expanded="false" />
                 <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
                 <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
                 <element signature="n#!!block;n#loginSQL#0" expanded="false" />
+                <element signature="n#!!block;n#mensaje#0" expanded="false" />
                 <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
                 <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
+                <element signature="n#!!block;n#validarFormulario#0" expanded="false" />
                 <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
                 <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
-                <element signature="e#5978#6422#0" expanded="false" />
+                <element signature="e#6083#6527#0" expanded="false" />
                 <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
-                <element signature="e#8598#9042#0" expanded="false" />
                 <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
                 <element signature="n#!!block;n#addOptions#0" expanded="false" />
-                <element signature="e#10254#10594#0" expanded="false" />
+                <element signature="e#10324#10664#0" expanded="false" />
+                <element signature="n#!!block;n#mensajeGrafico#0" expanded="false" />
+                <element signature="n#!!block;n#add_grafico_Postgres#0" expanded="false" />
+                <element signature="n#!!block;n#chart_Postgres#0" expanded="false" />
+                <element signature="n#!!block;n#limpiarSelect#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="grafico.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/grafico.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,7 +148,6 @@
         <option value="$PROJECT_DIR$/PY_BasesII_I/PHP/pruebasSQL.php" />
         <option value="$PROJECT_DIR$/PY_BasesII_I/HTML/styles.css" />
         <option value="$PROJECT_DIR$/PY_BasesII_I/PHP/prueba.php" />
-        <option value="$PROJECT_DIR$/PY_BasesII_I/HTML/grafico.js" />
         <option value="$PROJECT_DIR$/PY_BasesII_I/HTML/prueba1.css" />
         <option value="$PROJECT_DIR$/PY_BasesII_I/HTML/preuba2.html" />
         <option value="$PROJECT_DIR$/PY_BasesII_I/PHP/pruebaAngelo.php" />
@@ -163,6 +155,7 @@
         <option value="$PROJECT_DIR$/PY_BasesII_I/HTML/sql.html" />
         <option value="$PROJECT_DIR$/PY_BasesII_I/HTML/main.html" />
         <option value="$PROJECT_DIR$/PY_BasesII_I/PHP/index.php" />
+        <option value="$PROJECT_DIR$/PY_BasesII_I/HTML/grafico.js" />
         <option value="$PROJECT_DIR$/PY_BasesII_I/HTML/postgres.html" />
         <option value="$PROJECT_DIR$/PY_BasesII_I/HTML/metodos.js" />
       </list>
@@ -387,15 +380,16 @@
       <workItem from="1521657224128" duration="4952000" />
       <workItem from="1521667218012" duration="16071000" />
       <workItem from="1521688836556" duration="6248000" />
-      <workItem from="1521749828581" duration="4501000" />
+      <workItem from="1521749828581" duration="4702000" />
+      <workItem from="1521819333658" duration="7157000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103584000" />
+    <option name="totallyTimeSpent" value="110942000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38932496" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -403,12 +397,12 @@
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60556465" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -426,7 +420,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="25" />
+      <option name="time" value="26" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -436,19 +430,25 @@
         <state relative-caret-position="357">
           <caret line="21" column="55" lean-forward="false" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
           <folding>
-            <element signature="e#45#177#0#PHP" expanded="false" />
-            <element signature="e#179#321#0#PHP" expanded="false" />
-            <element signature="e#323#465#0#PHP" expanded="false" />
-            <element signature="e#467#613#0#PHP" expanded="false" />
-            <element signature="e#615#751#0#PHP" expanded="false" />
-            <element signature="e#753#891#0#PHP" expanded="false" />
+            <element signature="e#45#203#0#PHP" expanded="false" />
+            <element signature="e#205#367#0#PHP" expanded="false" />
+            <element signature="e#369#501#0#PHP" expanded="false" />
+            <element signature="e#503#645#0#PHP" expanded="false" />
+            <element signature="e#647#789#0#PHP" expanded="false" />
+            <element signature="e#791#937#0#PHP" expanded="false" />
+            <element signature="e#939#1075#0#PHP" expanded="false" />
+            <element signature="e#1077#1215#0#PHP" expanded="false" />
             <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
             <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
             <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-            <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-            <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
+            <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+            <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+            <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+            <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
           </folding>
         </state>
       </provider>
@@ -464,16 +464,21 @@
             <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
             <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
             <element signature="n#!!block;n#loginSQL#0" expanded="false" />
+            <element signature="n#!!block;n#mensaje#0" expanded="false" />
             <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
             <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
+            <element signature="n#!!block;n#validarFormulario#0" expanded="false" />
             <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
             <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
-            <element signature="e#5978#6422#0" expanded="false" />
+            <element signature="e#6083#6527#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
-            <element signature="e#8598#9042#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
             <element signature="n#!!block;n#addOptions#0" expanded="false" />
-            <element signature="e#10254#10594#0" expanded="false" />
+            <element signature="e#10324#10664#0" expanded="false" />
+            <element signature="n#!!block;n#mensajeGrafico#0" expanded="false" />
+            <element signature="n#!!block;n#add_grafico_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#chart_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#limpiarSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -483,19 +488,25 @@
         <state relative-caret-position="357">
           <caret line="21" column="55" lean-forward="false" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
           <folding>
-            <element signature="e#45#177#0#PHP" expanded="false" />
-            <element signature="e#179#321#0#PHP" expanded="false" />
-            <element signature="e#323#465#0#PHP" expanded="false" />
-            <element signature="e#467#613#0#PHP" expanded="false" />
-            <element signature="e#615#751#0#PHP" expanded="false" />
-            <element signature="e#753#891#0#PHP" expanded="false" />
+            <element signature="e#45#203#0#PHP" expanded="false" />
+            <element signature="e#205#367#0#PHP" expanded="false" />
+            <element signature="e#369#501#0#PHP" expanded="false" />
+            <element signature="e#503#645#0#PHP" expanded="false" />
+            <element signature="e#647#789#0#PHP" expanded="false" />
+            <element signature="e#791#937#0#PHP" expanded="false" />
+            <element signature="e#939#1075#0#PHP" expanded="false" />
+            <element signature="e#1077#1215#0#PHP" expanded="false" />
             <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
             <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
             <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-            <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-            <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
+            <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+            <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+            <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+            <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
           </folding>
         </state>
       </provider>
@@ -511,16 +522,21 @@
             <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
             <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
             <element signature="n#!!block;n#loginSQL#0" expanded="false" />
+            <element signature="n#!!block;n#mensaje#0" expanded="false" />
             <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
             <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
+            <element signature="n#!!block;n#validarFormulario#0" expanded="false" />
             <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
             <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
-            <element signature="e#5978#6422#0" expanded="false" />
+            <element signature="e#6083#6527#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
-            <element signature="e#8598#9042#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
             <element signature="n#!!block;n#addOptions#0" expanded="false" />
-            <element signature="e#10254#10594#0" expanded="false" />
+            <element signature="e#10324#10664#0" expanded="false" />
+            <element signature="n#!!block;n#mensajeGrafico#0" expanded="false" />
+            <element signature="n#!!block;n#add_grafico_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#chart_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#limpiarSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -530,19 +546,25 @@
         <state relative-caret-position="357">
           <caret line="21" column="55" lean-forward="true" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
           <folding>
-            <element signature="e#45#177#0#PHP" expanded="false" />
-            <element signature="e#179#321#0#PHP" expanded="false" />
-            <element signature="e#323#465#0#PHP" expanded="false" />
-            <element signature="e#467#613#0#PHP" expanded="false" />
-            <element signature="e#615#751#0#PHP" expanded="false" />
-            <element signature="e#753#891#0#PHP" expanded="false" />
+            <element signature="e#45#203#0#PHP" expanded="false" />
+            <element signature="e#205#367#0#PHP" expanded="false" />
+            <element signature="e#369#501#0#PHP" expanded="false" />
+            <element signature="e#503#645#0#PHP" expanded="false" />
+            <element signature="e#647#789#0#PHP" expanded="false" />
+            <element signature="e#791#937#0#PHP" expanded="false" />
+            <element signature="e#939#1075#0#PHP" expanded="false" />
+            <element signature="e#1077#1215#0#PHP" expanded="false" />
             <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
             <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
             <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-            <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-            <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
+            <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+            <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+            <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+            <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
           </folding>
         </state>
       </provider>
@@ -560,16 +582,21 @@
             <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
             <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
             <element signature="n#!!block;n#loginSQL#0" expanded="false" />
+            <element signature="n#!!block;n#mensaje#0" expanded="false" />
             <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
             <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
+            <element signature="n#!!block;n#validarFormulario#0" expanded="false" />
             <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
             <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
-            <element signature="e#5978#6422#0" expanded="false" />
+            <element signature="e#6083#6527#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
-            <element signature="e#8598#9042#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
             <element signature="n#!!block;n#addOptions#0" expanded="false" />
-            <element signature="e#10254#10594#0" expanded="false" />
+            <element signature="e#10324#10664#0" expanded="false" />
+            <element signature="n#!!block;n#mensajeGrafico#0" expanded="false" />
+            <element signature="n#!!block;n#add_grafico_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#chart_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#limpiarSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -580,19 +607,25 @@
         <state relative-caret-position="714">
           <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <element signature="e#45#177#0#PHP" expanded="false" />
-            <element signature="e#179#321#0#PHP" expanded="false" />
-            <element signature="e#323#465#0#PHP" expanded="false" />
-            <element signature="e#467#613#0#PHP" expanded="false" />
-            <element signature="e#615#751#0#PHP" expanded="false" />
-            <element signature="e#753#891#0#PHP" expanded="false" />
+            <element signature="e#45#203#0#PHP" expanded="false" />
+            <element signature="e#205#367#0#PHP" expanded="false" />
+            <element signature="e#369#501#0#PHP" expanded="false" />
+            <element signature="e#503#645#0#PHP" expanded="false" />
+            <element signature="e#647#789#0#PHP" expanded="false" />
+            <element signature="e#791#937#0#PHP" expanded="false" />
+            <element signature="e#939#1075#0#PHP" expanded="false" />
+            <element signature="e#1077#1215#0#PHP" expanded="false" />
             <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
             <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
             <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-            <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-            <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
+            <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+            <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+            <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+            <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
           </folding>
         </state>
       </provider>
@@ -608,16 +641,21 @@
             <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
             <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
             <element signature="n#!!block;n#loginSQL#0" expanded="false" />
+            <element signature="n#!!block;n#mensaje#0" expanded="false" />
             <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
             <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
+            <element signature="n#!!block;n#validarFormulario#0" expanded="false" />
             <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
             <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
-            <element signature="e#5978#6422#0" expanded="false" />
+            <element signature="e#6083#6527#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
-            <element signature="e#8598#9042#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
             <element signature="n#!!block;n#addOptions#0" expanded="false" />
-            <element signature="e#10254#10594#0" expanded="false" />
+            <element signature="e#10324#10664#0" expanded="false" />
+            <element signature="n#!!block;n#mensajeGrafico#0" expanded="false" />
+            <element signature="n#!!block;n#add_grafico_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#chart_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#limpiarSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -627,19 +665,25 @@
         <state relative-caret-position="306">
           <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
           <folding>
-            <element signature="e#45#177#0#PHP" expanded="false" />
-            <element signature="e#179#321#0#PHP" expanded="false" />
-            <element signature="e#323#465#0#PHP" expanded="false" />
-            <element signature="e#467#613#0#PHP" expanded="false" />
-            <element signature="e#615#751#0#PHP" expanded="false" />
-            <element signature="e#753#891#0#PHP" expanded="false" />
+            <element signature="e#45#203#0#PHP" expanded="false" />
+            <element signature="e#205#367#0#PHP" expanded="false" />
+            <element signature="e#369#501#0#PHP" expanded="false" />
+            <element signature="e#503#645#0#PHP" expanded="false" />
+            <element signature="e#647#789#0#PHP" expanded="false" />
+            <element signature="e#791#937#0#PHP" expanded="false" />
+            <element signature="e#939#1075#0#PHP" expanded="false" />
+            <element signature="e#1077#1215#0#PHP" expanded="false" />
             <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
             <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
             <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-            <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-            <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
+            <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+            <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+            <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+            <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
           </folding>
         </state>
       </provider>
@@ -662,16 +706,21 @@
             <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
             <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
             <element signature="n#!!block;n#loginSQL#0" expanded="false" />
+            <element signature="n#!!block;n#mensaje#0" expanded="false" />
             <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
             <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
+            <element signature="n#!!block;n#validarFormulario#0" expanded="false" />
             <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
             <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
-            <element signature="e#5978#6422#0" expanded="false" />
+            <element signature="e#6083#6527#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
-            <element signature="e#8598#9042#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
             <element signature="n#!!block;n#addOptions#0" expanded="false" />
-            <element signature="e#10254#10594#0" expanded="false" />
+            <element signature="e#10324#10664#0" expanded="false" />
+            <element signature="n#!!block;n#mensajeGrafico#0" expanded="false" />
+            <element signature="n#!!block;n#add_grafico_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#chart_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#limpiarSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -681,19 +730,25 @@
         <state relative-caret-position="340">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="e#45#177#0#PHP" expanded="false" />
-            <element signature="e#179#321#0#PHP" expanded="false" />
-            <element signature="e#323#465#0#PHP" expanded="false" />
-            <element signature="e#467#613#0#PHP" expanded="false" />
-            <element signature="e#615#751#0#PHP" expanded="false" />
-            <element signature="e#753#891#0#PHP" expanded="false" />
+            <element signature="e#45#203#0#PHP" expanded="false" />
+            <element signature="e#205#367#0#PHP" expanded="false" />
+            <element signature="e#369#501#0#PHP" expanded="false" />
+            <element signature="e#503#645#0#PHP" expanded="false" />
+            <element signature="e#647#789#0#PHP" expanded="false" />
+            <element signature="e#791#937#0#PHP" expanded="false" />
+            <element signature="e#939#1075#0#PHP" expanded="false" />
+            <element signature="e#1077#1215#0#PHP" expanded="false" />
             <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
             <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
             <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-            <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-            <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
+            <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+            <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+            <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+            <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
           </folding>
         </state>
       </provider>
@@ -704,19 +759,25 @@
         <state relative-caret-position="204">
           <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
-            <element signature="e#45#177#0#PHP" expanded="false" />
-            <element signature="e#179#321#0#PHP" expanded="false" />
-            <element signature="e#323#465#0#PHP" expanded="false" />
-            <element signature="e#467#613#0#PHP" expanded="false" />
-            <element signature="e#615#751#0#PHP" expanded="false" />
-            <element signature="e#753#891#0#PHP" expanded="false" />
+            <element signature="e#45#203#0#PHP" expanded="false" />
+            <element signature="e#205#367#0#PHP" expanded="false" />
+            <element signature="e#369#501#0#PHP" expanded="false" />
+            <element signature="e#503#645#0#PHP" expanded="false" />
+            <element signature="e#647#789#0#PHP" expanded="false" />
+            <element signature="e#791#937#0#PHP" expanded="false" />
+            <element signature="e#939#1075#0#PHP" expanded="false" />
+            <element signature="e#1077#1215#0#PHP" expanded="false" />
             <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
             <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
             <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-            <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-            <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
+            <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+            <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+            <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+            <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
           </folding>
         </state>
       </provider>
@@ -731,16 +792,21 @@
             <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
             <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
             <element signature="n#!!block;n#loginSQL#0" expanded="false" />
+            <element signature="n#!!block;n#mensaje#0" expanded="false" />
             <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
             <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
+            <element signature="n#!!block;n#validarFormulario#0" expanded="false" />
             <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
             <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
-            <element signature="e#5978#6422#0" expanded="false" />
+            <element signature="e#6083#6527#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
-            <element signature="e#8598#9042#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
             <element signature="n#!!block;n#addOptions#0" expanded="false" />
-            <element signature="e#10254#10594#0" expanded="false" />
+            <element signature="e#10324#10664#0" expanded="false" />
+            <element signature="n#!!block;n#mensajeGrafico#0" expanded="false" />
+            <element signature="n#!!block;n#add_grafico_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#chart_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#limpiarSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -756,16 +822,21 @@
             <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
             <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
             <element signature="n#!!block;n#loginSQL#0" expanded="false" />
+            <element signature="n#!!block;n#mensaje#0" expanded="false" />
             <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
             <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
+            <element signature="n#!!block;n#validarFormulario#0" expanded="false" />
             <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
             <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
-            <element signature="e#5978#6422#0" expanded="false" />
+            <element signature="e#6083#6527#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
-            <element signature="e#8598#9042#0" expanded="false" />
             <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
             <element signature="n#!!block;n#addOptions#0" expanded="false" />
-            <element signature="e#10254#10594#0" expanded="false" />
+            <element signature="e#10324#10664#0" expanded="false" />
+            <element signature="n#!!block;n#mensajeGrafico#0" expanded="false" />
+            <element signature="n#!!block;n#add_grafico_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#chart_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#limpiarSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -775,19 +846,25 @@
         <state relative-caret-position="323">
           <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding>
-            <element signature="e#45#177#0#PHP" expanded="false" />
-            <element signature="e#179#321#0#PHP" expanded="false" />
-            <element signature="e#323#465#0#PHP" expanded="false" />
-            <element signature="e#467#613#0#PHP" expanded="false" />
-            <element signature="e#615#751#0#PHP" expanded="false" />
-            <element signature="e#753#891#0#PHP" expanded="false" />
+            <element signature="e#45#203#0#PHP" expanded="false" />
+            <element signature="e#205#367#0#PHP" expanded="false" />
+            <element signature="e#369#501#0#PHP" expanded="false" />
+            <element signature="e#503#645#0#PHP" expanded="false" />
+            <element signature="e#647#789#0#PHP" expanded="false" />
+            <element signature="e#791#937#0#PHP" expanded="false" />
+            <element signature="e#939#1075#0#PHP" expanded="false" />
+            <element signature="e#1077#1215#0#PHP" expanded="false" />
             <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
             <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
             <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
             <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-            <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-            <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
+            <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+            <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+            <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+            <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
           </folding>
         </state>
       </provider>
@@ -865,120 +942,118 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/grafico.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/principal.html" />
     <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/main.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PY_BasesII_I/PHP/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="102" column="62" lean-forward="false" selection-start-line="102" selection-start-column="62" selection-end-line="102" selection-end-column="62" />
-          <folding>
-            <element signature="e#45#177#0#PHP" expanded="false" />
-            <element signature="e#179#321#0#PHP" expanded="false" />
-            <element signature="e#323#465#0#PHP" expanded="false" />
-            <element signature="e#467#613#0#PHP" expanded="false" />
-            <element signature="e#615#751#0#PHP" expanded="false" />
-            <element signature="e#753#891#0#PHP" expanded="false" />
-            <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
-            <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
-            <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
-            <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
-            <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
-            <marker date="1521753335361" expanded="true" signature="2274:2304" ph="SELECT name databases" />
-            <marker date="1521753335361" expanded="true" signature="3798:3857" ph="SELECT datna... pg_database" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/sql.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/metodos.js">
+    <entry file="file://$PROJECT_DIR$/PY_BasesII_I/PHP/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="203" column="0" lean-forward="false" selection-start-line="203" selection-start-column="0" selection-end-line="203" selection-end-column="0" />
+        <state relative-caret-position="339">
+          <caret line="156" column="71" lean-forward="false" selection-start-line="156" selection-start-column="71" selection-end-line="156" selection-end-column="71" />
           <folding>
-            <element signature="n#!!block;n#persona#0" expanded="false" />
-            <element signature="n#!!block;n#conexion#0" expanded="false" />
-            <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
-            <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
-            <element signature="n#!!block;n#loginSQL#0" expanded="false" />
-            <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
-            <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
-            <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
-            <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
-            <element signature="e#5978#6422#0" expanded="false" />
-            <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
-            <element signature="e#8598#9042#0" expanded="false" />
-            <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
-            <element signature="n#!!block;n#addOptions#0" expanded="false" />
-            <element signature="e#10254#10594#0" expanded="false" />
+            <element signature="e#45#203#0#PHP" expanded="false" />
+            <element signature="e#205#367#0#PHP" expanded="false" />
+            <element signature="e#369#501#0#PHP" expanded="false" />
+            <element signature="e#503#645#0#PHP" expanded="false" />
+            <element signature="e#647#789#0#PHP" expanded="false" />
+            <element signature="e#791#937#0#PHP" expanded="false" />
+            <element signature="e#939#1075#0#PHP" expanded="false" />
+            <element signature="e#1077#1215#0#PHP" expanded="false" />
+            <element signature="n#conectar_PostgreSQL#0;n#!!top" expanded="false" />
+            <element signature="n#conectar_SQLServer#0;n#!!top" expanded="false" />
+            <element signature="n#get_DB_SQL#0;n#!!top" expanded="false" />
+            <element signature="n#select_SQLServer#0;n#!!top" expanded="false" />
+            <element signature="n#select_Postgres#0;n#!!top" expanded="false" />
+            <element signature="n#get_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_procedure_DB_postgres#0;n#!!top" expanded="false" />
+            <element signature="n#add_grafico_DB_postgres#0;n#!!top" expanded="false" />
+            <marker date="1521822593047" expanded="true" signature="2598:2628" ph="SELECT name databases" />
+            <marker date="1521822593047" expanded="true" signature="4122:4181" ph="SELECT datna... pg_database" />
+            <marker date="1521822593047" expanded="true" signature="4763:5205" ph="SELECT datna... pg_database" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/grafico.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/postgres.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#select#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#5;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#2;n#form#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#3;n#form#0;n#div#0;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#2;n#form#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#3;n#form#0;n#div#0;n#div#1;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#form#0;n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#form#0;n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#2;n#form#0;n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#3;n#form#0;n#div#0;n#div#2;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PY_BasesII_I/HTML/metodos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="252" column="20" lean-forward="false" selection-start-line="252" selection-start-column="20" selection-end-line="252" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!block;n#persona#0" expanded="false" />
+            <element signature="n#!!block;n#conexion#0" expanded="false" />
+            <element signature="n#!!block;n#limpiarFormI#0" expanded="false" />
+            <element signature="n#!!block;n#loginPostgres#0" expanded="false" />
+            <element signature="n#!!block;n#loginSQL#0" expanded="false" />
+            <element signature="n#!!block;n#mensaje#0" expanded="false" />
+            <element signature="n#!!block;n#conectarPOSTGRES#0" expanded="false" />
+            <element signature="n#!!block;n#conectarSQLServer#0" expanded="false" />
+            <element signature="n#!!block;n#validarFormulario#0" expanded="false" />
+            <element signature="n#!!block;n#setBD_SQL#0" expanded="false" />
+            <element signature="n#!!block;n#cambioBD_SQL#0" expanded="false" />
+            <element signature="e#6083#6527#0" expanded="false" />
+            <element signature="n#!!block;n#getBasesDatos_SQL#0" expanded="false" />
+            <element signature="n#!!block;n#getBasesDatos_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#addOptions#0" expanded="false" />
+            <element signature="e#10324#10664#0" expanded="false" />
+            <element signature="n#!!block;n#mensajeGrafico#0" expanded="false" />
+            <element signature="n#!!block;n#add_grafico_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#chart_Postgres#0" expanded="false" />
+            <element signature="n#!!block;n#limpiarSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
