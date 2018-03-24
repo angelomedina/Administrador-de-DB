@@ -268,8 +268,8 @@ function add_grafico_DB_SQL($usuario,$contraseña,$ip,$puerto,$bd){
     }
 
     while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
-        //echo $row['name'].",".$row['Tamaño en MB'].",".$row['Factor crecimiento'].",".$row['Tamaño maximo MB'].",".$row['Porcentaje utilizado'];
-        echo "Name: ".$row['name']."\nTamaño en MB: ".$row['Tamaño en MB']."\nFactor crecimiento: ".$row['Factor crecimiento']."\nTamaño maximo MB: ".$row['Tamaño maximo MB']."\nPorcentaje utilizado: ".$row['Porcentaje utilizado']."\n\n";
+        echo $row['name'].",".$row['Tamaño en MB'].",".$row['Factor crecimiento'].",".$row['Tamaño maximo MB'].",".$row['Porcentaje utilizado'].",";
+        //echo "Name: ".$row['name']."\nTamaño en MB: ".$row['Tamaño en MB']."\nFactor crecimiento: ".$row['Factor crecimiento']."\nTamaño maximo MB: ".$row['Tamaño maximo MB']."\nPorcentaje utilizado: ".$row['Porcentaje utilizado']."\n\n";
         //break;
     }
 

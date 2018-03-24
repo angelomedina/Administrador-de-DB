@@ -12,7 +12,6 @@ function persona(usr,contra,ip,puert) {
     this.puerto=puert;
 }
 
-
 //objeto perosna con los datos del formulario
 function conexion(usr,contra,ip,puert,db) {
     this.usuario=usr;
@@ -233,7 +232,7 @@ function add_grafico_SQL() {
             if(this.statusText== "OK" && this.status == 200) {
 
                 var obj = this.responseText;
-                chart_SQL(obj);
+                dividirCadena(obj, ",");
             }
             else{console.log(this.statusText, this.status)}
 
@@ -278,16 +277,46 @@ function limpiarSelect() {
     }
 }
 
-function chart_SQL(dato) {
+function dividirCadena(cadenaADividir,separador) {
+
+    var nombres2 = cadenaADividir.substr(0);
+    var nombres = nombres2.split(",");
+    nombres.pop();
 
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Informacion');
+    data.addColumn('string', 'Name');
+    data.addColumn('string', 'Factor de crecieiento');
+    data.addColumn('string', 'Tamaño en MB');
+    data.addColumn('string', 'Tamaño Maximo');
+    data.addColumn('string', 'Porcentaje');
 
-    data.addRows([
-        [dato]
-    ]);
+    var  i = 0;
+    while(i < nombres.length)
+    {
+            data.addRows([
+                [nombres[i],nombres[i+1],nombres[i+2],nombres[i+3],nombres[i+4]]
+            ]);
+        i=i+5;
+    }
     var table = new google.visualization.Table(document.getElementById('chart_sql'));
-    table.draw(data, {showRowNumber: true, width: '800%', height: '20%'});
+    table.draw(data, {showRowNumber: true, width: '800%', height: '50%'});
+
+}
+
+function chart_SQL(Name,FactorC,TamañoMB,TamañoMax,Porcentaje) {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Name');
+    data.addColumn('string', 'Factor de crecieiento');
+    data.addColumn('string', 'Tamaño en MB');
+    data.addColumn('string', 'Tamaño Maximo');
+    data.addColumn('string', 'Porcentaje');
+    /*
+    data.addRows([
+        [Name,FactorC,TamañoMB,TamañoMax,Porcentaje]
+    ]);*/
+    var table = new google.visualization.Table(document.getElementById('chart_sql'));
+    table.draw(data, {showRowNumber: true, width: '800%', height: '50%'});
 
 }
 
@@ -409,3 +438,6 @@ function modifyFileGroup(){
     xhttp.open("GET", "../PHP/index.php?func=ModifyFileGroup_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB+"&nameFile="+FileGroupName+"$sizeFile="+SizeGruop, true);
     xhttp.send();
 }
+
+
+
