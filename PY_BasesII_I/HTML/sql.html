@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 </head>
 <body>
 
@@ -109,9 +111,17 @@
 <div class="card text-white bg-primary mb-3" style="max-width: 500rem;">
     <br><br><label class="titulo-label">4.Gráfico</label><br><br>
 </div><br><br>
+
 <div class="card" style="width: 80rem;">
     <div class="card-body">
-        <br><br><h5 class="titulo-label-4">Gráfico</h5>
+        <br><br><h5 class="titulo-label-4">Tabla</h5><br><br>
+
+        <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="myCheck"  onclick="myFunction()">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description">En tiempo real</span>
+        </label><br><br><br><br>
+
         <div id="chart_sql"  style="width: 800px; height: 300px;"></div>
     </div>
 </div>

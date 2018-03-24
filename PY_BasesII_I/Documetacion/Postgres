@@ -1,0 +1,22 @@
+--prcedimeinto: recibe el nombre de la base de datos a consultar
+CREATE OR REPLACE function conectarBD(dbname varchar) returns record as $$
+declare
+	v_record record;
+begin
+	SELECT * INTO v_record from (SELECT 	
+	--pg_database_size: obtiene el tamaño maximo de la BD dada por parametro					
+	pg_database_size( dbname ),
+	--pg_total_relation_size: obtiene el tamaño en uso de la BD dada por parametro
+	pg_total_relation_size(dbname),
+	--operacion para obtener el porcentaje de memoria en uso
+	round((((pg_database_size( dbname ))-(pg_total_relation_size(dbname)))))*(-100)/(pg_database_size(dbname))+100.0 as "Porcentaje de uso")
+	as we;
+	RETURN v_record;
+end;
+$$ language plpgsql;
+
+--El procediemiento se prueba asi, como "dato quemado" envio 'test' 
+--que es una base de datos existe en localhost
+select conectarBD('test');
+
+

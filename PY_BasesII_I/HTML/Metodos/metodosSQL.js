@@ -1,7 +1,10 @@
+//api pra el grafico
 google.charts.load('current', {'packages':['table']});
 google.charts.setOnLoadCallback(chart_SQL);
 
+//conexion con SQL
 var usuarioActual;
+//todos los datos de la conexion actual mas BD seleccionada
 var conexionActual;
 
 //objeto perosna con los datos del formulario
@@ -167,7 +170,7 @@ function cambioBD_SQL() {
     xhttp.send();
 }
 
-
+//obtiene las bases de datos existentes en la conexion
 function getBasesDatos_SQL()
 {
     var pais="";
@@ -199,6 +202,7 @@ function getBasesDatos_SQL()
     xhttp.send();
 }
 
+// procedimeinto de obtencion de datos del grafico
 function add_procedure_SQL() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -223,6 +227,7 @@ function add_procedure_SQL() {
     xhttp.send();
 }
 
+//obtiene los datos de discos de las bases de datos
 function add_grafico_SQL() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -242,6 +247,7 @@ function add_grafico_SQL() {
     xhttp.send();
 }
 
+//agrega datos al selec DB
 function addOptions(domElement, array) {
 
     if(array !== "undefinedmaster") {
@@ -258,6 +264,7 @@ function addOptions(domElement, array) {
     }
 }
 
+//hace la nueva conexion con la base de datos seleccionada y muestra su info en el grafico
 function mensajeGrafico(mensaje,estado,respuesta,estadoRespuesta) {
 
     if( estadoRespuesta == 10) {
@@ -270,6 +277,7 @@ function mensajeGrafico(mensaje,estado,respuesta,estadoRespuesta) {
     }
 }
 
+//limpia los select de db
 function limpiarSelect() {
     var select = document.getElementById('select-bd');
     while (select.firstChild) {
@@ -277,8 +285,8 @@ function limpiarSelect() {
     }
 }
 
+//de la informacion del grafico obtienen un string y este lo modulariza por espacios y tomar datos para el grafico
 function dividirCadena(cadenaADividir,separador) {
-
     var nombres2 = cadenaADividir.substr(0);
     var nombres = nombres2.split(",");
     nombres.pop();
@@ -303,6 +311,7 @@ function dividirCadena(cadenaADividir,separador) {
 
 }
 
+//grafico de tabla
 function chart_SQL(Name,FactorC,TamañoMB,TamañoMax,Porcentaje) {
 
     var data = new google.visualization.DataTable();
@@ -320,6 +329,7 @@ function chart_SQL(Name,FactorC,TamañoMB,TamañoMax,Porcentaje) {
 
 }
 
+//proce para añadir proced para crear discos
 function add_procedureCreateFile_SQL(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -344,6 +354,7 @@ function add_procedureCreateFile_SQL(){
     xhttp.send();
 }
 
+//añade la creacion de discos
 function newFile() {
     var FileGroupName=document.getElementById('nameNewDis').value;
     var PathofFiles=document.getElementById('pathfileNewDis').value;
@@ -364,6 +375,7 @@ function newFile() {
     xhttp.send();
 }
 
+//añada del porc para crear filegroup
 function add_procedureCreateGroupFile_SQL(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -385,6 +397,7 @@ function add_procedureCreateGroupFile_SQL(){
     xhttp.send();
 }
 
+//agregar filegrup
 function newFileGroup() {
     var FileGroupName=document.getElementById('nameNew').value;
     var xhttp = new XMLHttpRequest();
@@ -401,6 +414,7 @@ function newFileGroup() {
     xhttp.send();
 }
 
+//funcion para añadir el procedimeinto modificacion de file groups
 function add_procedureModifyGroupFile_SQL(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -422,9 +436,11 @@ function add_procedureModifyGroupFile_SQL(){
     xhttp.send();
 }
 
+//funcion para modificar filegroup
 function modifyFileGroup(){
     var FileGroupName=document.getElementById('nameMody').value;
     var SizeGruop=document.getElementById('sizeMody').value;
+
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
 
@@ -435,9 +451,27 @@ function modifyFileGroup(){
             else{console.log(this.statusText, this.status)}
         }
     };
-    xhttp.open("GET", "../PHP/index.php?func=ModifyFileGroup_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB+"&nameFile="+FileGroupName+"$sizeFile="+SizeGruop, true);
+    xhttp.open("GET", "../PHP/index.php?func=ModifyFileGroup_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB+"&nameFile="+FileGroupName+"&sizeFile="+SizeGruop.toString(), true);
     xhttp.send();
 }
+
+
+//funcion para refrescar una funcion cada 10 s
+var timout;
+function myFunction() {
+    var checkBox = document.getElementById("myCheck");
+    if (checkBox.checked == true){
+        timout=setTimeout(function() {
+            add_grafico_SQL();
+            myFunction();
+        },10000,"JavaScript");
+    }
+    else{
+        clearTimeout(timout);
+    }
+}
+
+
 
 
 

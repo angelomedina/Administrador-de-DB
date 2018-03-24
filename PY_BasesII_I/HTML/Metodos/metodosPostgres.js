@@ -161,6 +161,7 @@ function cambioBD_Postgres() {
     xhttp.send();
 }
 
+//carga el select de la base de datos
 function getBasesDatos_Postgres()
 {
     var pais="";
@@ -191,6 +192,7 @@ function getBasesDatos_Postgres()
     xhttp.send();
 }
 
+//añade elementos al select de base de datos
 function addOptions(domElement, array) {
 
  if(array !== "undefinedmaster") {
@@ -207,6 +209,7 @@ function addOptions(domElement, array) {
  }
 }
 
+//hace la nueva conexion con la base de datos seleccionada y carca el grafico
 function mensajeGrafico(mensaje,estado,respuesta,estadoRespuesta) {
 
     if(mensaje == "OK" && estado == 200 && estadoRespuesta == 10){
@@ -219,6 +222,7 @@ function mensajeGrafico(mensaje,estado,respuesta,estadoRespuesta) {
     }
 }
 
+//añade el procedimeotos de obtencion de datos de grafico
 function add_procedure_Postgres() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -241,6 +245,7 @@ function add_procedure_Postgres() {
     xhttp.send();
 }
 
+//carga el grafico
 function add_grafico_Postgres() {
     var pais="";
     var xhttp = new XMLHttpRequest();
@@ -272,7 +277,7 @@ function add_grafico_Postgres() {
     xhttp.send();
 }
 
-
+//limpia el select de las opciones repetidas
 function limpiarSelect() {
     var select = document.getElementById('select-bd-postgres');
     while (select.firstChild) {
@@ -280,6 +285,7 @@ function limpiarSelect() {
     }
 }
 
+//grafico de postgres
 function chart_Postgres(BD,tamaño,estado) {
 
     var data = new google.visualization.DataTable();

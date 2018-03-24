@@ -1,4 +1,5 @@
 <?php
+//seleccion de funciones
 if ($_GET['func']=='ModifyFileGroup_SQL')
 {
     ModifyFileGroup_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd'],$_GET['nameFile'],$_GET['sizeFile']);
@@ -147,7 +148,6 @@ function select_SQLServer($usuario,$contraseña,$ip,$puerto,$bd)
     }
 }
 
-//************************************************************************************nuevas
 //se hace una nueva conexion con la nueva base de datos
 function select_Postgres($usuario,$contraseña,$ip,$puerto,$bd)
 {
@@ -156,6 +156,7 @@ function select_Postgres($usuario,$contraseña,$ip,$puerto,$bd)
     return $conexion;
 }
 
+//obtiene las bases de datos de POstgres
 function get_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
     $cadenaConexion = "host=$ip port=$puerto dbname=$bd user=$usuario password=$contraseña";
     $conexion = pg_connect($cadenaConexion) or die( "Error al conectar: ".pg_last_error() );
@@ -173,6 +174,7 @@ function get_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
 
 }
 
+//añade procedimeinto: "conectarBD" a cada base de datos
 function add_procedure_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
     $cadenaConexion = "host=$ip port=$puerto dbname=$bd user=$usuario password=$contraseña";
     $conexion = pg_connect($cadenaConexion) or die( "Error al conectar: ".pg_last_error() );
@@ -193,6 +195,7 @@ function add_procedure_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
 
 }
 
+//obtiene el proced de "conectarBD"
 function add_grafico_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
     $cadenaConexion = "host=$ip port=$puerto dbname=$bd user=$usuario password=$contraseña";
     $conexion = pg_connect($cadenaConexion) or die( "Error al conectar: ".pg_last_error() );
@@ -202,6 +205,7 @@ function add_grafico_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
     echo json_encode($row);
 }
 
+//añade procedimeinto: "conexionBD" a cada base de datos
 function add_procedure_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -234,6 +238,7 @@ function add_procedure_SQL($usuario,$contraseña,$ip,$puerto,$bd){
     sqlsrv_free_stmt( $stmt);
 }
 
+//elimina procedimeinto: "conexionBD" a cada base de datos
 function drop_procedureconexionBD_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -252,6 +257,7 @@ function drop_procedureconexionBD_SQL($usuario,$contraseña,$ip,$puerto,$bd){
     sqlsrv_free_stmt( $stmt);
 }
 
+//ejecuta el proced "conexionBD"
 function add_grafico_DB_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -269,12 +275,12 @@ function add_grafico_DB_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
         echo $row['name'].",".$row['Tamaño en MB'].",".$row['Factor crecimiento'].",".$row['Tamaño maximo MB'].",".$row['Porcentaje utilizado'].",";
-        //echo "Name: ".$row['name']."\nTamaño en MB: ".$row['Tamaño en MB']."\nFactor crecimiento: ".$row['Factor crecimiento']."\nTamaño maximo MB: ".$row['Tamaño maximo MB']."\nPorcentaje utilizado: ".$row['Porcentaje utilizado']."\n\n";
-        //break;
+
     }
 
 }
 
+//añade procedimeinto: "fileCreate" a cada base de datos
 function add_procedureCreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -304,6 +310,7 @@ function add_procedureCreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
     sqlsrv_free_stmt( $stmt);
 }
 
+//elimina procedimeinto: "fileCreate" a cada base de datos
 function drop_procedureCreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -322,6 +329,7 @@ function drop_procedureCreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
     sqlsrv_free_stmt( $stmt);
 }
 
+//ejecuta el proced "fileCreate"
 function CreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd,$nameFile,$pathFile,$sizeFile){
     $serverName = "$ip\sqlexpress,$puerto";
     $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
@@ -337,6 +345,7 @@ function CreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd,$nameFile,$pathFil
     sqlsrv_free_stmt( $stmt);
 }
 
+//añade procedimeinto: "filesGroupCreator" a cada base de datos
 function add_procedureCreateGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -363,6 +372,7 @@ function add_procedureCreateGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd)
     sqlsrv_free_stmt( $stmt);
 }
 
+//elimina procedimeinto: "filesGroupCreator" a cada base de datos
 function drop_procedureCreateGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -382,6 +392,7 @@ function drop_procedureCreateGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd
     sqlsrv_free_stmt( $stmt);
 }
 
+//ejecuta procedimeinto: "filesGroupCreator" a cada base de datos
 function CreateFileGroup_SQL($usuario,$contraseña,$ip,$puerto,$bd,$nameFile){
     $serverName = "$ip\sqlexpress,$puerto";
     $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
@@ -397,6 +408,7 @@ function CreateFileGroup_SQL($usuario,$contraseña,$ip,$puerto,$bd,$nameFile){
     sqlsrv_free_stmt( $stmt);
 }
 
+//añade procedimeinto: "fileGroupModf" a cada base de datos
 function add_procedureModifyGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -425,6 +437,7 @@ function add_procedureModifyGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd)
     sqlsrv_free_stmt( $stmt);
 }
 
+//elimina procedimeinto: "fileGroupModf" a cada base de datos
 function drop_procedureModifyGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -443,6 +456,7 @@ function drop_procedureModifyGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd
     sqlsrv_free_stmt( $stmt);
 }
 
+//ejecuta procedimeinto: "fileGroupModf" a cada base de datos
 function ModifyFileGroup_SQL($usuario,$contraseña,$ip,$puerto,$bd,$nameFile,$sizeFile){
     $serverName = "$ip\sqlexpress,$puerto";
     $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
