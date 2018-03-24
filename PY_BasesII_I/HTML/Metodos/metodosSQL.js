@@ -154,9 +154,11 @@ function cambioBD_SQL() {
             document.getElementById('btn-db').value="Selecionar";
 
             if(this.statusText== "OK" && this.status == 200) {
-                //
-                //mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
+
                 add_procedure_SQL();
+                add_procedureCreateFile_SQL();
+                add_procedureCreateGroupFile_SQL();
+                add_procedureModifyGroupFile_SQL();
             }
             else{console.log(this.statusText, this.status)}
 
@@ -197,7 +199,6 @@ function getBasesDatos_SQL()
     xhttp.open("GET", "../PHP/index.php?func=get_DB_SQL()&usuario="+usuarioActual.usuario +"&contraseña="+usuarioActual.contraseña +"&ip="+usuarioActual.IP +"&puerto="+usuarioActual.puerto.toString()+"&bd="+"master", true);
     xhttp.send();
 }
-
 
 function add_procedure_SQL() {
     var xhttp = new XMLHttpRequest();
@@ -241,7 +242,6 @@ function add_grafico_SQL() {
     xhttp.open("GET", "../PHP/index.php?func=add_grafico_DB_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB, true);
     xhttp.send();
 }
-
 
 function addOptions(domElement, array) {
 
@@ -291,3 +291,121 @@ function chart_SQL(dato) {
 
 }
 
+function add_procedureCreateFile_SQL(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        document.getElementById('btn-db').value="Esperando..."
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById('btn-db').value="Selecionar";
+
+            if(this.statusText== "OK" && this.status == 200) {
+
+                //console.log("se agrego el porc")
+                //mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
+
+            }
+            else{console.log(this.statusText, this.status)}
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=add_procedureCreateFile_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB, true);
+    xhttp.send();
+}
+
+function newFile() {
+    var FileGroupName=document.getElementById('nameNewDis').value;
+    var PathofFiles=document.getElementById('pathfileNewDis').value;
+    var MaxSizeMB=document.getElementById('maxsizeNewDis').value;
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.statusText== "OK" && this.status == 200) {
+                alert("Se creo un nuevo disco")
+            }
+            else{console.log(this.statusText, this.status)}
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=CreateFile_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB+"&nameFile="+FileGroupName+"&pathFile="+PathofFiles+"&sizeFile="+MaxSizeMB, true);
+    xhttp.send();
+}
+
+function add_procedureCreateGroupFile_SQL(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        document.getElementById('btn-db').value="Esperando..."
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById('btn-db').value="Selecionar";
+
+            if(this.statusText== "OK" && this.status == 200) {
+
+            }
+            else{console.log(this.statusText, this.status)}
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=add_procedureCreateGroupFile_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB, true);
+    xhttp.send();
+}
+
+function newFileGroup() {
+    var FileGroupName=document.getElementById('nameNew').value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.statusText== "OK" && this.status == 200) {
+                alert("Se creo un nuevo grupo de archivos")
+            }
+            else{console.log(this.statusText, this.status)}
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=CreateFileGroup_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB+"&nameFile="+FileGroupName, true);
+    xhttp.send();
+}
+
+function add_procedureModifyGroupFile_SQL(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        document.getElementById('btn-db').value="Esperando..."
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById('btn-db').value="Selecionar";
+
+            if(this.statusText== "OK" && this.status == 200) {
+
+            }
+            else{console.log(this.statusText, this.status)}
+
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=add_procedureModifyGroupFile_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB, true);
+    xhttp.send();
+}
+
+function modifyFileGroup(){
+    var FileGroupName=document.getElementById('nameMody').value;
+    var SizeGruop=document.getElementById('sizeMody').value;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+            if(this.statusText== "OK" && this.status == 200) {
+                alert("Se modifico un grupo de archivos")
+            }
+            else{console.log(this.statusText, this.status)}
+        }
+    };
+    xhttp.open("GET", "../PHP/index.php?func=ModifyFileGroup_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB+"&nameFile="+FileGroupName+"$sizeFile="+SizeGruop, true);
+    xhttp.send();
+}

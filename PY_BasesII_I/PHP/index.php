@@ -1,4 +1,34 @@
 <?php
+if ($_GET['func']=='ModifyFileGroup_SQL')
+{
+    ModifyFileGroup_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd'],$_GET['nameFile'],$_GET['sizeFile']);
+}
+
+if ($_GET['func']=='add_procedureModifyGroupFile_SQL')
+{
+    add_procedureModifyGroupFile_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
+}
+
+if ($_GET['func']=='CreateFileGroup_SQL')
+{
+    CreateFileGroup_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd'],$_GET['nameFile']);
+}
+
+if ($_GET['func']=='add_procedureCreateGroupFile_SQL')
+{
+    add_procedureCreateGroupFile_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
+}
+
+if ($_GET['func']=='CreateFile_SQL')
+{
+    CreateFile_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd'],$_GET['nameFile'],$_GET['pathFile'],$_GET['sizeFile']);
+}
+
+if ($_GET['func']=='add_procedureCreateFile_SQL')
+{
+    add_procedureCreateFile_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
+}
+
 if ($_GET['func']=='add_grafico_DB_SQL')
 {
     add_grafico_DB_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
@@ -204,7 +234,6 @@ function add_procedure_SQL($usuario,$contraseña,$ip,$puerto,$bd){
     sqlsrv_free_stmt( $stmt);
 }
 
-
 function drop_procedureconexionBD_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
     $serverName = "$ip\sqlexpress,$puerto";
@@ -246,7 +275,189 @@ function add_grafico_DB_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
 }
 
+function add_procedureCreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
 
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    drop_procedureCreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd);
+
+    $sql = "create procedure fileCreate @DatabaseName varchar(30),@FileGroupName varchar(30),@PathofFiles varchar (2000),@MaxSizeMB int----
+            as
+            begin
+                declare @Query varchar(2000);
+                        set @Query='alter database ' + @DatabaseName+
+                        ' add file ( name =''' + @FileGroupName +'''' + 
+                        ', filename = ''' + @PathofFiles + '\' + @FileGroupName +'.ndf'+ ''''  +
+                        ', size = ' + CONVERT(VARCHAR(10),@MaxSizeMB) + 'MB' +
+                        ' ) ' ;
+                    exec (@Query)
+            end";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+function drop_procedureCreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
+
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    $sql = "IF EXISTS(SELECT 1 FROM sys.procedures WHERE Name = 'fileCreate ')
+  drop Procedure fileCreate";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+function CreateFile_SQL($usuario,$contraseña,$ip,$puerto,$bd,$nameFile,$pathFile,$sizeFile){
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+    $sql = "exec fileCreate @DatabaseName='$bd',@FileGroupName='$nameFile',@PathofFiles = '$pathFile',@MaxSizeMB=$sizeFile";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+function add_procedureCreateGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
+
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    drop_procedureCreateGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd);
+
+    $sql = "create procedure filesGroupCreator @DatabaseName varchar(30) ,@FileGroupName varchar(30)
+            as
+            begin
+                declare @Query varchar(2000);
+                set @Query='ALTER DATABASE ' + @DatabaseName + 
+                           ' ADD FILEGROUP ' + @FileGroupName;
+                exec (@Query)
+            end";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+function drop_procedureCreateGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
+
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    $sql = "IF EXISTS(SELECT 1 FROM sys.procedures WHERE Name = 'filesGroupCreator')
+  drop Procedure filesGroupCreator";
+
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+function CreateFileGroup_SQL($usuario,$contraseña,$ip,$puerto,$bd,$nameFile){
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+    $sql = "exec filesGroupCreator @DatabaseName='$bd',@FileGroupName='$nameFile'";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+function add_procedureModifyGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
+
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    drop_procedureModifyGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd);
+
+    $sql = "create procedure fileGroupModf @DatabaseName varchar(30),@FileGroupName varchar(30),@MaxSizeMB int
+            as
+            begin
+                declare @Query varchar(2000);
+                        set @Query='alter database ' + @DatabaseName+
+                        ' modify file ( name =''' + @FileGroupName +'''' + 
+                        ', size = ' + CONVERT(VARCHAR(10),@MaxSizeMB) + 'MB' +
+                        ' ) ' ;
+                    exec (@Query)
+            end";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+function drop_procedureModifyGroupFile_SQL($usuario,$contraseña,$ip,$puerto,$bd){
+
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    $sql = "IF EXISTS(SELECT 1 FROM sys.procedures WHERE Name = 'fileGroupModf')
+  drop Procedure fileGroupModf";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+function ModifyFileGroup_SQL($usuario,$contraseña,$ip,$puerto,$bd,$nameFile,$sizeFile){
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+    $sql = "exec fileGroupModf @DatabaseName='$bd',@FileGroupName='$nameFile', @MaxSizeMB=$sizeFile";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
 
 ?>
 
