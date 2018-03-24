@@ -1,3 +1,6 @@
+google.charts.load('current', {'packages':['table']});
+google.charts.setOnLoadCallback(chart_SQL);
+
 var usuarioActual;
 var conexionActual;
 
@@ -8,6 +11,7 @@ function persona(usr,contra,ip,puert) {
     this.IP =ip;
     this.puerto=puert;
 }
+
 
 //objeto perosna con los datos del formulario
 function conexion(usr,contra,ip,puert,db) {
@@ -37,7 +41,7 @@ function loginSQL() {
 function mensaje(mensaje,estado,respuesta,estadoRespuesta) {
     if(mensaje == "OK" && estado == 200 && estadoRespuesta == 10){
         alert("Conexion exitosa con Postgres");
-        getBasesDatos_Postgres();
+        //getBasesDatos_Postgres();
     }
     else if( estadoRespuesta == 42) {
         alert("Conexion exitosa con SQL Server");
@@ -132,6 +136,7 @@ function setBD_SQL(){
     var objConexion = new conexion( usuarioActual.usuario , usuarioActual.contraseña, usuarioActual.IP,usuarioActual.puerto,bd);
     //instancia de manera global
     conexionActual = objConexion;
+    limpiarSelect();
     //verificacion de cambio de BD
     cambioBD_SQL();
 }
@@ -149,8 +154,9 @@ function cambioBD_SQL() {
             document.getElementById('btn-db').value="Selecionar";
 
             if(this.statusText== "OK" && this.status == 200) {
-                add_procedure_SQL();
+                //
                 //mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
+                add_procedure_SQL();
             }
             else{console.log(this.statusText, this.status)}
 
@@ -160,9 +166,7 @@ function cambioBD_SQL() {
     xhttp.send();
 }
 
-//optiene las bases de datos
 
-/////////////////////////////////////////////////meterle parametros
 function getBasesDatos_SQL()
 {
     var pais="";
@@ -194,7 +198,6 @@ function getBasesDatos_SQL()
     xhttp.send();
 }
 
-////////////////////////////////////////////////SQL
 
 function add_procedure_SQL() {
     var xhttp = new XMLHttpRequest();
@@ -209,6 +212,8 @@ function add_procedure_SQL() {
             if(this.statusText== "OK" && this.status == 200) {
 
                 mensajeGrafico(this.statusText, this.status,this.responseText,this.responseText.length);
+                //mensaje(this.statusText, this.status,this.responseText,this.responseText.length);
+
             }
             else{console.log(this.statusText, this.status)}
 
@@ -219,7 +224,6 @@ function add_procedure_SQL() {
 }
 
 function add_grafico_SQL() {
-    var pais="";
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
 
@@ -227,20 +231,8 @@ function add_grafico_SQL() {
 
             if(this.statusText== "OK" && this.status == 200) {
 
-                obj= this.responseText ;
-                for (var i in obj)
-                {
-                    var pieza=obj[i];
-                    if(pieza != ']'){
-                        if( pieza != '['){
-                            if(pieza != '('){
-                                if(pieza != ')'){
-                                    if(pieza != '"'){
-                                        pais=pais+pieza;
-                                    }}}}}
-                }
-                console.log(pais);
-                //chart_Postgres(conexionActual.DB,parseInt(pais),true);
+                var obj = this.responseText;
+                chart_SQL(obj);
             }
             else{console.log(this.statusText, this.status)}
 
@@ -249,6 +241,7 @@ function add_grafico_SQL() {
     xhttp.open("GET", "../PHP/index.php?func=add_grafico_DB_SQL&usuario="+conexionActual.usuario +"&contraseña="+conexionActual.contraseña +"&ip="+conexionActual.IP +"&puerto="+conexionActual.puerto.toString()+"&bd="+conexionActual.DB, true);
     xhttp.send();
 }
+
 
 function addOptions(domElement, array) {
 
@@ -267,16 +260,8 @@ function addOptions(domElement, array) {
 }
 
 function mensajeGrafico(mensaje,estado,respuesta,estadoRespuesta) {
-    console.log(respuesta);
-    /*
-    if(mensaje == "OK" && estado == 200 && estadoRespuesta == 10){
-        alert("Conexion exitosa con Postgres");
-        getBasesDatos_Postgres();
-        add_grafico_Postgres();
 
-
-    }
-    else if( estadoRespuesta == 42) {
+    if( estadoRespuesta == 10) {
         alert("Conexion exitosa con SQL Server");
         getBasesDatos_SQL();
         add_grafico_SQL();
@@ -284,5 +269,25 @@ function mensajeGrafico(mensaje,estado,respuesta,estadoRespuesta) {
     else {
         alert(respuesta);
     }
-    */
 }
+
+function limpiarSelect() {
+    var select = document.getElementById('select-bd');
+    while (select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
+}
+
+function chart_SQL(dato) {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Informacion');
+
+    data.addRows([
+        [dato]
+    ]);
+    var table = new google.visualization.Table(document.getElementById('chart_sql'));
+    table.draw(data, {showRowNumber: true, width: '800%', height: '20%'});
+
+}
+

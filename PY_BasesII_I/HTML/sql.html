@@ -6,9 +6,8 @@
     <!--graficos de google-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <!--library Propia -->
-    <script type="text/javascript" src="grafico.js"></script>
-    <script type="text/javascript" src="metodos.js"></script>
-    <link  rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="../HTML/Metodos/metodosSQL.js"></script>
+    <link  rel="stylesheet" href="Estilos/styles.css">
     <!-- Material Design for Bootstrap -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/FezVrasta/bootstrap-material-design/dist/dist/bootstrap-material-design.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -58,7 +57,6 @@
         <a  target="_self" > <input class="btn btn-danger" type="submit" id="btn-db" value="Selecionar" onclick="setBD_SQL()" /> </a><br><br>
     </div>
 </div><br><br>
-
 <!--discos -->
 <div class="card text-white bg-primary mb-3" style="max-width: 500rem;">
     <br><br><label class="titulo-label">3.Seleccón de discos</label><br><br>
@@ -128,10 +126,10 @@
 <div class="card text-white bg-primary mb-3" style="max-width: 500rem;">
     <br><br><label class="titulo-label">4.Gráfico</label><br><br>
 </div><br><br>
-<div class="card" style="width: 50rem;">
+<div class="card" style="width: 80rem;">
     <div class="card-body">
         <br><br><h5 class="titulo-label-4">Gráfico</h5>
-        <div id="piechart"  style="width: 500px; height: 500px;"></div>
+        <div id="chart_sql"  style="width: 800px; height: 300px;"></div>
     </div>
 </div>
 </body>

@@ -1,5 +1,14 @@
 <?php
-//verifica a que funcion desea acceder
+if ($_GET['func']=='add_grafico_DB_SQL')
+{
+    add_grafico_DB_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
+}
+
+if ($_GET['func']=='add_procedure_SQL')
+{
+    add_procedure_SQL($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
+}
+
 if ($_GET['func']=='add_grafico_DB_postgres()')
 {
     add_grafico_DB_postgres($_GET['usuario'],$_GET['contraseña'],$_GET['ip'],$_GET['puerto'],$_GET['bd']);
@@ -162,6 +171,83 @@ function add_grafico_DB_postgres($usuario,$contraseña,$ip,$puerto,$bd){
     $row=pg_fetch_row($result);
     echo json_encode($row);
 }
+
+function add_procedure_SQL($usuario,$contraseña,$ip,$puerto,$bd){
+
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    drop_procedureconexionBD_SQL($usuario,$contraseña,$ip,$puerto,$bd);
+
+    $sql = "create procedure conexionBD
+            as
+            begin
+                select [name],
+                    --Tamaño actual en memoria
+                    (cast(fileproperty(name, 'SpaceUsed') AS int)/128.0) AS 'Tamaño en MB', 
+                    --Factor de crecimeinto
+                    (growth*8)/1024 'Factor crecimiento',
+                    --Tamaño maximo a almacenar
+                    [size]/128 AS 'Tamaño maximo MB', 
+                    --Porcentaje de memoria utilizado
+                    (cast(fileproperty(name, 'SpaceUsed') as int)/128.0 / ([size]/128)) * 100 as 'Porcentaje utilizado'
+                from sysfiles 
+            end;";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+
+function drop_procedureconexionBD_SQL($usuario,$contraseña,$ip,$puerto,$bd){
+
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    $sql = "IF EXISTS(SELECT 1 FROM sys.procedures WHERE Name = 'conexionBD')
+  drop Procedure conexionBD";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+    sqlsrv_free_stmt( $stmt);
+}
+
+function add_grafico_DB_SQL($usuario,$contraseña,$ip,$puerto,$bd){
+
+    $serverName = "$ip\sqlexpress,$puerto";
+    $connectionInfo = array( "Database"=>$bd, "UID"=>$usuario, "PWD"=>$contraseña);
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
+
+    $sql = "exec conexionBD";
+    $stmt = sqlsrv_query( $conn, $sql );
+    if( $stmt === false) {
+        die( print_r( sqlsrv_errors(), true) );
+    }
+
+    while( $row = sqlsrv_fetch_array( $stmt, SQLSRV_FETCH_ASSOC) ) {
+        //echo $row['name'].",".$row['Tamaño en MB'].",".$row['Factor crecimiento'].",".$row['Tamaño maximo MB'].",".$row['Porcentaje utilizado'];
+        echo "Name: ".$row['name']."\nTamaño en MB: ".$row['Tamaño en MB']."\nFactor crecimiento: ".$row['Factor crecimiento']."\nTamaño maximo MB: ".$row['Tamaño maximo MB']."\nPorcentaje utilizado: ".$row['Porcentaje utilizado']."\n\n";
+        //break;
+    }
+
+}
+
+
+
 ?>
 
 
